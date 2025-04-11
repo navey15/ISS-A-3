@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navey Puri - Personal Website</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <header id="start-interface">
+        <img src="assets/images/profilepic.png" alt="Profile Picture" class="profile-picture">
+        <h1>Hello, my name is <span class="highlight">Navey Puri</span></h1>
+        <p>I'm an <span class="highlight">Aspiring Software Engineer</span></p>
+    </header>
+
+    <div class="sidebar">
+        <h1>Atlas</h1>
+        <nav>
+            <ul>
+                <li><button class="toggle-button" onclick="showSection('about')">About</button></li>
+                <li><button class="toggle-button" onclick="showSection('education')">Education</button></li>
+                <li><button class="toggle-button" onclick="showSection('achievements')">Achievements</button></li>
+                <li><button class="toggle-button" onclick="showSection('skills')">Skills</button></li>
+                <li><button class="toggle-button" onclick="showSection('cv')">CV</button></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <section id="about" class="content-section hidden">
+            <h2>About Me</h2>
+            <p>
+                Hello! I'm Navey Puri, an 18-year-old aspiring software engineer from New Delhi, India. I have always been fascinated by the world of technology and its ability to solve real-world problems. My journey into the tech world began during my school days, where I developed a keen interest in programming and software development. Over the years, I have honed my skills in various programming languages and frameworks, and I am passionate about creating innovative solutions that make a difference. Apart from academics, I enjoy exploring new technologies, playing sports, and engaging in creative problem-solving.
+            </p>
+            <h3>Exploring New Delhi</h3>
+            <p>
+                Being from New Delhi, I have always been surrounded by the rich cultural heritage and iconic landmarks of the city. Here are some of the most famous places that define the beauty and history of New Delhi:
+            </p>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/India_Gate_on_the_evening_of_77th_Independence_day.jpg/250px-India_Gate_on_the_evening_of_77th_Independence_day.jpg" alt="India Gate">
+                    <h4>India Gate</h4>
+                    <p>
+                        A war memorial and one of the most iconic landmarks in New Delhi, India Gate stands as a tribute to the soldiers who sacrificed their lives for the country.
+                    </p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://static.toiimg.com/thumb/65666850/redfort1.jpg?width=1200&height=900" alt="Red Fort">
+                    <h4>Red Fort</h4>
+                    <p>
+                        A UNESCO World Heritage Site, the Red Fort is a symbol of India's rich history and the site where the Prime Minister hoists the national flag on Independence Day.
+                    </p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.wanderon.in/blogs/new/2024/05/cp.png" alt="Connaught Place">
+                    <h4>Connaught Place</h4>
+                    <p>
+                        Known as the heart of New Delhi, Connaught Place is a bustling commercial and cultural hub, famous for its colonial architecture and vibrant atmosphere.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="content-section hidden">
+            <h2>Education Background</h2>
+            <p>
+                I completed my schooling at <strong>Delhi Public School, RK Puram</strong>, one of the most prestigious schools in India. During my time there, I excelled in science and mathematics, which laid a strong foundation for my technical journey. Currently, I am pursuing my undergraduate degree in Computer Science at <strong>IIIT Hyderabad</strong>, a premier institute known for its cutting-edge research and academic excellence. My coursework includes subjects like Data Structures, Algorithms, Machine Learning, and Web Development, which have equipped me with the skills needed to thrive in the tech industry.
+            </p>
+        </section>
+
+        <section id="achievements" class="content-section hidden">
+            <h2>Achievements</h2>
+            <ul>
+                <li>
+                    <strong>JEE Mains 2024 AIR 1503:</strong> Secured a top rank in one of the most competitive engineering entrance exams in India, showcasing my dedication and academic excellence.
+                </li>
+                <li>
+                    <strong>JEE Advanced 2024 AIR 14254:</strong> Qualified for admission to the prestigious IITs, demonstrating my problem-solving skills and perseverance.
+                </li>
+                <li>
+                    <strong>Lawn Tennis Nationals 2019:</strong> Represented Delhi State in the Lawn Tennis Nationals, highlighting my discipline, teamwork, and commitment to sports.
+                </li>
+            </ul>
+        </section>
+
+        <section id="skills" class="content-section hidden">
+            <h2>Technical Skills</h2>
+            <h3>Frontend Development:</h3>
+            <ul>
+                <li><strong>HTML:</strong> Proficient in creating structured and semantic web pages.</li>
+                <li><strong>CSS:</strong> Skilled in designing responsive and visually appealing user interfaces.</li>
+                <li><strong>JavaScript:</strong> Experienced in adding interactivity and dynamic behavior to web applications.</li>
+                <li><strong>React:</strong> Knowledgeable in building scalable and reusable components for modern web applications.</li>
+            </ul>
+            <h3>Backend Development:</h3>
+            <ul>
+                <li><strong>PHP:</strong> Experienced in building server-side logic and dynamic web applications.</li>
+                <li><strong>Python:</strong> Skilled in scripting, automation, and backend development.</li>
+            </ul>
+            <h3>Databases:</h3>
+            <ul>
+                <li><strong>MySQL:</strong> Proficient in designing and managing relational databases.</li>
+                <li><strong>NoSQL:</strong> Experienced in working with non-relational databases for scalable applications.</li>
+            </ul>
+        </section>
+
+        <section id="cv" class="content-section hidden">
+            <h2>Download My CV</h2>
+            <p>
+                You can download my detailed CV to learn more about my academic background, technical skills, and professional achievements. Feel free to reach out to me for any opportunities or collaborations.
+            </p>
+            <a href="assets/cv/Navey_Puri_CV.pdf" class="button" target="_blank">Download CV</a>
+        </section>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
