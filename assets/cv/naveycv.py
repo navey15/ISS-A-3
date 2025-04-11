@@ -82,7 +82,7 @@ pdf.ln(3)
 pdf.section_title('ACHIEVEMENTS')
 pdf.add_bullet_point('JEE Mains 2024: AIR 1503')
 pdf.add_bullet_point('JEE Advanced 2024: AIR 14254')
-pdf.add_bullet_point('Lawn Tennis Nationals 2019: Represented Delhi State')
+# pdf.add_bullet_point('Lawn Tennis Nationals 2019: Represented Delhi State')
 
 # Save the PDF
 pdf.output("Navey_Puri_CV.pdf")
