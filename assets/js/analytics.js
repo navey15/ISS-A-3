@@ -4,52 +4,86 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initializeAnalytics() {
-    // Track page views
-    logEvent('view', 'page', document.title);
+    // Track initial page view
+    logEvent('view', 'page', 'Initial page load');
+
+    // Track section views
+    const sections = document.querySelectorAll('.content-section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                logEvent('view', 'section', entry.target.id);
+            }
+        });
+    });
+
+    sections.forEach(section => observer.observe(section));
 
     // Track clicks on all interactive elements
     document.addEventListener('click', (event) => {
         const target = event.target;
-        
-        // Determine the type of element clicked
-        let elementType = getElementType(target);
-        
-        // Get any relevant text or alt text
-        let elementDescription = getElementDescription(target);
-        
-        // Log the click event
-        logEvent('click', elementType, elementDescription);
+        const eventDetails = getEventDetails(target);
+        logEvent('click', eventDetails.type, eventDetails.description);
     });
+}
 
-    // Track when CV link is clicked
-    const cvLink = document.querySelector('a[href$=".pdf"]');
-    if (cvLink) {
-        cvLink.addEventListener('click', () => {
-            logEvent('click', 'cv-download', 'CV PDF');
-        });
+function getEventDetails(element) {
+    // Profile picture
+    if (element.classList.contains('profile-picture')) {
+        return {
+            type: 'image',
+            description: 'Profile Picture'
+        };
     }
-}
 
-function getElementType(element) {
-    // Determine element type based on tag name and classes
-    if (element.classList.contains('profile-picture')) return 'profile-image';
-    if (element.classList.contains('toggle-button')) return 'navigation-button';
-    if (element.tagName.toLowerCase() === 'img') return 'image';
-    if (element.tagName.toLowerCase() === 'a') return 'link';
-    if (element.classList.contains('content-section')) return 'section';
-    return element.tagName.toLowerCase();
-}
+    // Gallery images
+    if (element.closest('.gallery-item')) {
+        return {
+            type: 'image',
+            description: `Gallery Image: ${element.alt || 'Unnamed'}`
+        };
+    }
 
-function getElementDescription(element) {
-    // Get meaningful description of the element
-    if (element.alt) return element.alt;
-    if (element.textContent) return element.textContent.trim().substring(0, 50);
-    if (element.className) return element.className;
-    return 'unnamed-element';
+    // Navigation buttons
+    if (element.classList.contains('toggle-button')) {
+        return {
+            type: 'navigation',
+            description: `Section: ${element.textContent}`
+        };
+    }
+
+    // CV download link
+    if (element.matches('a[href$=".pdf"]')) {
+        return {
+            type: 'download',
+            description: 'CV PDF'
+        };
+    }
+
+    // Text content
+    if (element.tagName === 'P' || element.tagName === 'LI') {
+        return {
+            type: 'text',
+            description: element.textContent.substring(0, 50) + '...'
+        };
+    }
+
+    // Text analyzer button
+    if (element.classList.contains('analyze-button')) {
+        return {
+            type: 'button',
+            description: 'Text Analyzer'
+        };
+    }
+
+    // Default case
+    return {
+        type: element.tagName.toLowerCase(),
+        description: element.className || 'unnamed-element'
+    };
 }
 
 function logEvent(eventType, objectType, description) {
     const timestamp = new Date().toISOString();
-    const logMessage = `${timestamp}, ${eventType}, ${objectType}: ${description}`;
-    console.log(logMessage);
+    console.log(`${timestamp}, ${eventType}, ${objectType}: ${description}`);
 }
