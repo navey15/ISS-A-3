@@ -1,6 +1,13 @@
 // Initialize analytics when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    initializeAnalytics();
+document.addEventListener('DOMContentLoaded', function() {
+    // Debug line to verify script loading
+    console.log('Analytics script loaded at:', new Date().toISOString());
+    
+    try {
+        initializeAnalytics();
+    } catch (error) {
+        console.error('Analytics initialization error:', error);
+    }
 });
 
 function initializeAnalytics() {
