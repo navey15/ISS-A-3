@@ -24,6 +24,7 @@
                 <li><button class="toggle-button" onclick="showSection('achievements')">Achievements</button></li>
                 <li><button class="toggle-button" onclick="showSection('skills')">Skills</button></li>
                 <li><button class="toggle-button" onclick="showSection('cv')">CV</button></li>
+                <li><button class="toggle-button" onclick="showSection('text-analyzer')">Text Analyzer</button></li>
             </ul>
         </nav>
     </div>
@@ -113,8 +114,23 @@
             </p>
             <a href="assets/cv/Navey_Puri_CV.pdf" class="button" target="_blank">Download CV</a>
         </section>
+
+        <section id="text-analyzer" class="content-section hidden">
+            <h2>Text Analyzer</h2>
+            <div class="analyzer-container">
+                <textarea id="input-text" rows="10" placeholder="Enter text (minimum 10000 words)..." class="analyzer-input"></textarea>
+                <button onclick="analyzeText()" class="analyze-button">Analyze Text</button>
+                <div id="analysis-results" class="analysis-results">
+                    <div id="basic-stats"></div>
+                    <div id="pronouns-stats"></div>
+                    <div id="prepositions-stats"></div>
+                    <div id="articles-stats"></div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/text-analyzer.js"></script>
 </body>
 </html>
